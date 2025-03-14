@@ -47,6 +47,10 @@ export const edit = async(data)=>{
     response.updateAt = new Date(response.updateAt * 1000);
     return response
 }
-export const remove = ()=>{
-    const url = new URL
+export const remove = async(id)=>{
+    const url = new URL ("https://67d2f8148bca322cc268a7d3.mockapi.io/")
+    url.pathname += `informacion/${id}`
+    const response = await fetch(url.toString(),
+    {method: "delete"})
+    return await response.json();
 }
